@@ -17,20 +17,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Mount static files (frontend) – Vercel serves static files from the repo root
-frontend_dir = Path(__file__).parent.parent / "frontend"
-if frontend_dir.exists():
-    app.mount("/static", StaticFiles(directory=str(frontend_dir)), name="static")
+# No manual static mount – static assets will be served by Vercel via rewrites (see vercel.json)
 
 # Include all routes from the original app (except the root static serving which we already handled)
 for route in core_app.routes:
     if route.path != "/":
         app.router.routes.append(route)
 
-# Root endpoint – serve the UI index.html
-@app.get("/", response_class=fastapi.responses.HTMLResponse)
-async def serve_root():
-    index_path = frontend_dir / "index.html"
-    if index_path.exists():
-        return fastapi.responses.HTMLResponse(content=index_path.read_text())
-    return fastapi.responses.HTMLResponse("<h1>Frontend not found</h1>")
+# Root endpoint not needed – static UI is served by Vercel
