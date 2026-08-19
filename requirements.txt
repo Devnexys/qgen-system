@@ -1,1 +1,18 @@
--r backend/requirements.txt
+fastapi
+uvicorn
+python-multipart
+spacy
+pdfplumber
+python-docx
+transformers
+torch
+sentencepiece
+nltk
+language-tool-python
+reportlab
+fpdf2
+fuzzywuzzy
+python-Levenshtein
+scikit-learn
+pandas
+numpy
