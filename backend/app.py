@@ -29,16 +29,16 @@ from pydantic import BaseModel, Field
 import io
 
 # --- Module imports ---
-from modules.text_extractor import extract_text
-from modules.preprocessor import preprocess
-from modules.nlp_analyzer import analyze_sentences, get_entity_type_map
-from modules.question_generator import generate_questions_for_sentences
-from modules.distractor_gen import generate_distractors
-from modules.validator import validate_mcqs
-from modules.difficulty import filter_by_difficulty
-from modules.topic_detector import detect_topic, generate_explanation
-from modules.exporter import export_to_csv, export_to_pdf
-from config import UPLOAD_DIR
+from backend.modules.text_extractor import extract_text
+from backend.modules.preprocessor import preprocess
+from backend.modules.nlp_analyzer import analyze_sentences, get_entity_type_map
+from backend.modules.question_generator import generate_questions_for_sentences
+from backend.modules.distractor_gen import generate_distractors
+from backend.modules.validator import validate_mcqs
+from backend.modules.difficulty import filter_by_difficulty
+from backend.modules.topic_detector import detect_topic, generate_explanation
+from backend.modules.exporter import export_to_csv, export_to_pdf
+from backend.config import UPLOAD_DIR
 
 # --- Logging setup ---
 
