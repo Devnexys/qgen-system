@@ -16,3 +16,4 @@ python-Levenshtein
 scikit-learn
 pandas
 numpy
+chardet
